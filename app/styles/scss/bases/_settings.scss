@@ -1,0 +1,77 @@
+/* ======================== SETTINGS 
+   base/settings.scss
+   ========================= */
+
+
+/* ================== Variables ==================*/
+//-----screen resolution
+$mobile-small: 480px;
+$mobile-small-min-width: 481px;
+$mobile: 640px;
+$mobile-min-width: 641px;
+$tablet: 767px;
+$tablet-min-width: 768px;
+$desktop: 991px;
+$desktop-min-width: 992px;
+$desktop-large: 1199px;
+$desktop-large-min-width: 1200px;
+$desktop-super-large: 1439px;
+$desktop-super-large-min-width: 1440px;
+
+//3 main are: mobile: 640 | tablet: 991 | desktop: 1200
+
+
+
+
+
+//--font
+//$font-main-regular: 'AvenirLTStd-Book', Tahoma, sans-serif;
+$font-main-regular: 'Avenir-Book', times, Tahoma, sans-serif;
+
+/* $font-title-thin: "gotham_htf_thinregular", Tahoma, sans-serif;
+$font-title-thin-italic: "gotham_htf_thinitalic", Tahoma, sans-serif;
+$font-title-regular: "gotham_htf_bookregular", Tahoma, sans-serif;
+$font-title-medium: "gotham_htf_medium", Tahoma, sans-serif;
+$font-title-black: "gotham_htf_blackregular", Tahoma, sans-serif;
+ */
+//$font-title: "miller_displayregular", Tahoma, sans-serif;
+$font-title: "miller-display", Tahoma, sans-serif;
+
+$font-title-regular: "miller-display", Tahoma, sans-serif;
+
+$font-main-weight-light: 300;
+$font-main-weight-regular: 400;
+$font-main-weight-sm: 600;
+$font-main-weight-bold: 700;
+
+
+
+//size
+$size-h1: 36px;
+$size-h1-mobile: 26px;
+$size-h2: 22px;
+$size-h2-mobile: 22px;
+$size-h3: 25px;
+$size-h3-mobile: 16px;
+$size-h4: 14px;
+$size-h4-mobile: 14px;
+
+//$size-bt: 10px;
+$size-bt: 11px;
+$size-bt-mobile: 10px;
+$size-p-larger: .9rem;
+$size-p: .85rem;
+$size-p-small: .75rem;
+
+//bezier
+$bezier-classic: cubic-bezier(.51,.02,.59,.98);
+
+//shadow
+$box-shadow: 0 2px 14px 0 rgba(47, 60, 83, 0.16);
+$dropdown-shadow: 0 0 15px 0 rgba(0,0,0,.2);
+
+//images path and background sprite etc...
+$img-folder-global: 'assets/images/';
+$img-folder-component: '../../assets/images/';
+$url-sprite: 'shared/sprite-elements.png';
+$sprite-size: 100px 100px;

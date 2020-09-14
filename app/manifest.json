@@ -1,0 +1,70 @@
+{
+  "name": "PepperPenny",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Pepper Penny",
+  "icons": {
+    "16": "images/penny-logo-icon.png",
+    "128": "images/penny-logo-icon.png"
+  },
+  "page_action": {
+    "default_icon": "images/penny-logo-icon.png",
+    "default_title": "Pepper Penny"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "scripts/libs/jquery/jquery-3.2.1.min.js",
+      "scripts/libs/moment.min.js",
+      "scripts/communicationController.js",
+      "scripts/libs/moment-timezone-with-data-2012-2022.min.js",
+      "scripts/background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://merch.amazon.com/*"
+      ],
+      "css": [
+        "bower_components/angular/angular-csp.css",
+        "styles/main.css"
+      ],
+      "js": [        
+        "bower_components/angular/angular.min.js",
+        "scripts/libs/angular-modal-service.min.js",
+        "bower_components/angular-input-masks/angular-input-masks-standalone.min.js",
+        "scripts/libs/jquery/jquery-3.2.1.min.js",
+        "scripts/communicationController.js",
+        "scripts/libs/moment.min.js",
+        "scripts/libs/moment-timezone-with-data-2012-2022.min.js",
+        "scripts/contentscript.js"
+      ],
+      "html": [
+        "template/dashboard.html"
+      ],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "tabs",
+    "notifications",
+    "identity",
+    "identity.email",
+    "https://merch.amazon.com/*"
+  ],
+  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "web_accessible_resources": [
+    "templates/dashboard.html",
+    "templates/options.html",
+    "templates/modal-upgrade-pro.html",
+    "templates/modal-delete-confirm.html",
+    "bower_components/angular/*",
+    "bower_components/angular-input-masks/*",
+    "images/*"
+  ]
+}

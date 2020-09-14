@@ -1,0 +1,294 @@
+<div ng-controller="DashBoardController" class="sgc-dashboard">
+    <div ng-if="isSgcDashSelected" class="a-container sgc-container">
+        <div class="pp-header clearfix">
+            <div class="pp-header__logo">
+                <img src="chrome-extension://__MSG_@@extension_id__/images/refresh-icon.png" alt="">
+            </div>
+            <div class="pp-header__menu" ng-if="isLicensed">
+                <div class="tabs">
+                    <nav class="tab-left">
+                        <ul class="tab__list">
+                            <li class="tab__item">
+                                <a class="tab__link" ng-click="changeTab(0)" ng-class="{'is-active': tabActive == 0}">Price Increase</a>
+                            </li>
+                            <li class="tab__item">
+                                <a class="tab__link" ng-click="changeTab(1)" ng-class="{'is-active': tabActive == 1}">Price Decrease</a>
+                            </li>
+                            <li class="tab__item">
+                                <a class="tab__link" ng-click="changeTab(2)" ng-class="{'is-active': tabActive == 2}">Rules</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="tab-right">
+                        <a class="btn btn--link" ng-click="showUpdateProModal()" ng-if="!isLicensed">Get Your License Key</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="isLicensed">
+            <div class="tab-sections" ng-if="tabActive == 0">
+                <div class="wrap-btns wrap-btns--left mt-0 mb-regular">
+                    <button class="btn btn--start btn--icon-left">
+                        <span class="btn__icon">
+                            <i class="icon icon--refresh" ng-class="{'is-spinning': !isLoaded}"></i>
+                        </span>
+                        <span class="btn__text" ng-if="isLoaded" ng-click="refresh()">Refresh</span>
+                        <span class="btn__text" ng-if="!isLoaded">Analysing Sales Data......</span>
+                    </button>
+                </div>
+                <!-- <span ng-if="!isLoaded">Analysing Sales Data......</span> -->
+                <div class="row" ng-if="isLoaded">
+                    <div class="table-wrap table-wrap--shadow">
+                        <table class="table-shadow" ng-if="salesIncrementalRecommendations.length > 0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Product Type
+                                    </th>
+                                    <th>
+                                        Units Sold
+                                    </th>
+                                    <th>
+                                        Price
+                                    </th>
+                                    <th>
+                                        Recommended Price
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in salesIncrementalRecommendations | filter: { dismiss :'false'}">
+                                    <!-- <tr ng-repeat="item in salesIncrementalRecommendations"> -->
+                                    <td>
+                                        <a class="a-size-small a-link-normal" href="https://www.amazon.com/dp/{{item.asin}}" target="_blank">{{item.asinName}}</a>
+                                    </td>
+                                    <td>
+                                        {{item.productType}}
+                                    </td>
+                                    <td>
+                                        {{item.netSold}}
+                                    </td>
+                                    <td>
+                                        {{item.price}}
+                                    </td>
+                                    <td>
+                                        {{item.priceRecommendation}}
+                                    </td>
+                                    <td>
+                                        <a class="btn btn--table-action" data-ng-click="dismissRecommendation(item)">Dismiss</a>
+                                        <a class="btn btn--table-action" href="https://merch.amazon.com/merch-tshirt/title-setup/{{item.productId}}/add_details" target="_blank">Edit</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div ng-if="salesIncrementalRecommendations.length == 0">No Recommendations Found</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-sections" ng-if="tabActive == 1">
+                <div class="wrap-btns wrap-btns--left mt-0 mb-regular">
+                    <button class="btn btn--start btn--icon-left">
+                        <span class="btn__icon">
+                                <i class="icon icon--refresh" ng-class="{'is-spinning': !isLoaded}"></i>
+                            </span>
+                        <span class="btn__text" ng-if="isLoaded" ng-click="refresh()">Refresh</span>
+                        <span class="btn__text" ng-if="!isLoaded">Analysing Sales Data......</span>
+                    </button>
+                </div>
+                <!-- <span ng-if="!isLoaded">Analysing Sales Data......</span> -->
+                <div class="row" ng-if="isLoaded">
+                    <div class="table-wrap table-wrap--shadow">
+                        <table class="table-shadow" ng-if="salesDecrementalRecommendations.length > 0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Product Type
+                                    </th>
+                                    <th>
+                                        Units Sold
+                                    </th>
+                                    <th>
+                                        Price
+                                    </th>
+                                    <th>
+                                        Recommended Price
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in salesDecrementalRecommendations | filter: { dismiss :'false'}">
+                                    <!-- <tr ng-repeat="item in salesDecrementalRecommendations"> -->
+                                    <td>
+                                        <a class="a-size-small a-link-normal" href="https://www.amazon.com/dp/{{item.asin}}" target="_blank">{{item.asinName}}</a>
+                                    </td>
+                                    <td>
+                                        {{item.productType}}
+                                    </td>
+                                    <td>
+                                        {{item.netSold}}
+                                    </td>
+                                    <td>
+                                        {{item.price}}
+                                    </td>
+                                    <td>
+                                        {{item.priceRecommendation}}
+                                    </td>
+                                    <td>
+                                        <a class="btn btn--table-action" data-ng-click="dismissRecommendation(item)">Dismiss</a>
+                                        <a class="btn btn--table-action" href="https://merch.amazon.com/merch-tshirt/title-setup/{{item.productId}}/add_details" target="_blank">Edit</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div ng-if="salesDecrementalRecommendations.length == 0">No Recommendations Found</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-sections" ng-if="tabActive == 2 ">
+                <form name="newRuleForm" id="newRuleForm" novalidate data-ng-submit="savePriceRule(newRuleForm);">
+                    <p class="paragraph paragraph--large thin">
+                        <span class="textfield textfield--inline textfield--underline">
+                                    <input type="text" class="textfield__input center" name="basePrice" placeholder="0.00"
+                                    ng-model="newRule.basePrice" required ui-money-mask>
+                                </span> price shirt should go up
+                        <span class="textfield textfield--inline textfield--underline">
+                                    <input type="text" class="textfield__input center" name="priceIncrement" placeholder="0.00"
+                                    required ng-model="newRule.priceIncrement" ui-money-mask>
+                                </span> price every
+                        <span class="textfield textfield--inline textfield--underline">
+                                    <input type="text" class="textfield__input center" name="saleCount" placeholder="0"
+                                    required ng-model="newRule.saleCount" ui-number-mask="0">
+                                </span> sale is made, capping at
+                        <span class="textfield textfield--inline textfield--underline">
+                                    <input type="text" class="textfield__input center" name="priceMax" placeholder="0.00"
+                                    required ng-model="newRule.priceMax" ui-money-mask>
+                                </span>
+                    </p>
+                    <p class="paragraph paragraph--large thin">
+                        If shirt does not make sales in
+                        <span class="textfield textfield--inline textfield--underline">
+                                    <input type="text" class="textfield__input center" name="daysToWait" placeholder="0.00"
+                                    required ng-model="newRule.daysToWait" ui-number-mask="0">
+                                </span> days move shirt down
+                        <span class="textfield textfield--inline textfield--underline">
+                                    <input type="text" class="textfield__input center" name="priceDecrement" placeholder="0.00"
+                                    required ng-model="newRule.priceDecrement" ui-money-mask>
+                                </span> capping at
+                        <span class="textfield textfield--inline textfield--underline">
+                                    <input type="text" class="textfield__input center" name="priceMin" placeholder="0.00"
+                                    required ng-model="newRule.priceMin" ui-money-mask>
+                                </span> amount.
+                    </p>
+                    <div class="wrap-btns wrap-btns--right">
+                        <span class="btn btn--save" ng-if="newRule.Id!=0">
+                                    <input type='button' class='btn__input' value='Cancel' data-ng-click="onCancelEdit()" />
+                                    <span class="btn__text">Cancel</span>
+                        </span>
+                        <span class="btn btn--save">
+                                    <input type='submit' class='btn__input' value='Save' form="newRuleForm" />
+                                    <span class="btn__text">Save</span>
+                        </span>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="table-wrap table-wrap--shadow">
+                        <table class="table-shadow" ng-if="priceRules.length>0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Base Price
+                                    </th>
+                                    <th>
+                                        Sales Count
+                                    </th>
+                                    <th>
+                                        Price Increment
+                                    </th>
+                                    <th>
+                                        Price Max
+                                    </th>
+                                    <th>
+                                        Days To Wait
+                                    </th>
+                                    <th>
+                                        Price Decrement
+                                    </th>
+                                    <th>
+                                        Price Min
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tr ng-repeat="item in salesIncrementalRecommendations | filter: { direction :'up'}"> -->
+                                <tr ng-repeat="item in priceRules track by item.id">
+                                    <td>
+                                        {{item.basePrice |currency}}
+                                    </td>
+                                    <td>
+                                        {{item.saleCount |number}}
+                                    </td>
+                                    <td>
+                                        {{item.priceIncrement |currency}}
+                                    </td>
+                                    <td>
+                                        {{item.priceMax |currency}}
+                                    </td>
+                                    <td>
+                                        {{item.daysToWait}}
+                                    </td>
+                                    <td>
+                                        {{item.priceDecrement |currency}}
+                                    </td>
+                                    <td>
+                                        {{item.priceMin |currency}}
+                                    </td>
+                                    <td>
+                                        <span class="btn btn--save" data-ng-click="editPriceRule(item)">
+                                                        <input type='button' class='btn__input' value='Next' />
+                                                        <span class="btn__text">Edit</span>
+                                        </span>
+                                        <span class="btn btn--full alert" data-ng-click="deletePriceRule(item)">
+                                                        <input type='button' class='btn__input' value='Next' />
+                                                        <span class="btn__text">Delete</span>
+                                        </span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div ng-if="priceRules.length == 0">
+                            No Rules Found
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="!isLicensed && !isLicenseValidated" class="inner">
+            <p class="paragraph paragraph--medium">
+                Pepper Penny is loading.<br>Please wait a few seconds...
+            </p>
+        </div>
+        <div ng-if="!isLicensed && isLicenseValidated" class="inner">
+            <div class="alert-not-found">
+                <h3 class="heading--3">Welcome to Pepper Penny Extension!</h3>
+                <p class="paragraph paragraph--medium thin">
+                    Sorry, no Active License has been found.<br>Please <a ng-click="showUpdateProModal()" class="main-link">enter your Licence Key</a>, or <a href="http://www.pepperpenny.com" target="_blank" class="main-link">visit our website</a> to check the plan that fits best for your needs.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

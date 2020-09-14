@@ -1,0 +1,240 @@
+.main-link{
+	color: $font-color-title!important;
+	text-decoration: underline;
+}
+.wrap-btns {
+	margin-top: 30px;
+	text-align: center;
+	&--left {
+		text-align: left;
+	}
+	&--right {
+		text-align: right;
+	}
+	&.mt-0 {
+		margin-top: 0;
+	}
+	&.mt-small {
+		margin-top: 10px;
+	}
+	&.mt-large {
+		margin-top: 50px;
+	}
+	&.mb-small {
+		margin-bottom: 10px;
+	}
+	&.mb-regular {
+		margin-bottom: 30px;
+	}
+	&.mb-large {
+		margin-bottom: 50px;
+	}
+
+	.btn {
+	}
+}
+.btn {
+	position: relative;
+	display: inline-block;
+	padding: 10px 20px;
+	font-size: 14px;
+	font-weight: $font-main-weight-regular;
+	font-family: $font-main-regular;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	text-transform: none;
+	cursor: pointer;
+	background-color: #000;
+	border: 1px solid #000;
+	border-radius: 30px;
+	outline: none;
+	transition: opacity .3s;
+	&:hover {
+		opacity: .9;
+		text-decoration: none;
+		color: #fff;
+	}
+	&--table-action{
+		padding: 3px 10px;
+		font-size: 9px;
+		margin: 0;
+	}
+	&--large {
+		padding: 16px 45px;
+	}
+	&--large-l-r {
+		padding-right: 45px;
+		padding-left: 45px;
+	}
+	&--no-p {
+		padding: 0;
+	}
+	&--no-p-lr {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	
+	&--icon-left {
+		padding-left: 40px;
+		/* .icon {
+			position: absolute;
+			top: 50%;
+			left: 10px;
+			transform: translate3d(0,-50%,0);
+		} */
+	}
+	&--full-w {
+		width: 100%;
+	}
+	&--add, &--submit {
+		background-color: $color-secondary;
+		border: 1px solid $color-secondary;
+	}
+	&--save, &--save:hover {
+		background-color: $color-main;
+		border: 1px solid $color-main;
+	}
+	&--view, &--view:hover {
+		background-color: $color-valid;
+		border: 1px solid $color-valid;
+	}
+	&--start, &--start:hover {
+		color: $color-main;
+		background-color: transparent;
+		border: 1px solid $color-main;
+	}
+	&--ghost, &--ghost:hover {
+		color: $font-color-main;
+		background-color: transparent;
+		border: 1px solid #000;
+		&.pink, &.pink:hover {
+			color: $color-secondary;
+			background-color: transparent;
+			border-color: $color-secondary;
+		}
+		&.alert, &.alert:hover, &.red, &.red:hover {
+			color: $color-alert;
+			background-color: transparent;
+			border-color: $color-alert;
+		}
+		&.valid, &.valid:hover, &.green, &.green:hover {
+			color: $color-valid;
+			background-color: transparent;
+			border-color: $color-valid;
+		}
+		&.blue, &.blue:hover {
+			color: $color-main;
+			background-color: transparent;
+			border-color: $color-main;
+		}
+	}
+	&--full {
+		color: #fff;
+		background-color: $font-color-main;
+		border: 1px solid $font-color-main;
+		&.pink {
+			color: #fff;
+			background-color: $color-secondary;
+			border-color: $color-secondary;
+		}
+		&.alert, &.red {
+			color: #fff;
+			background-color: $color-alert;
+			border-color: $color-alert;
+		}
+		&.valid, &.green {
+			color: #fff;
+			background-color: $color-valid;
+			border-color: $color-valid;
+		}
+		&.blue {
+			color: #fff;
+			background-color: $color-main;
+			border-color: $color-main;
+		}
+	}
+	&--icon {
+		padding-right: 45px;
+		padding-left: 45px;
+
+		.icon {
+			position: absolute;
+			top: 50%;
+			left: 8px;
+			transform: translate3d(0, -50%, 0);
+		}
+		&--right {
+			.icon {
+				right: 8px;
+				left: auto;
+			}
+			&.btn--large {
+				.icon {
+					right: 15px;
+				}
+			}
+		}
+		&.btn--large {
+			.icon {
+				left: 15px;
+			}
+		}
+	}
+	&--transparent, &--link {
+		color: $font-color-main;
+		background-color: transparent;
+		border-color: transparent;
+		&.no-p {
+			padding: 3px 0;
+		}
+	}
+	&--link, &--link:hover {
+		color: $font-color-title;
+		text-decoration: underline;
+		&.white, &.white:hover {
+			color: #fff;
+		}
+		&.black, &.black:hover {
+			color: $font-color-main;
+		}
+		&.pink, &.pink:hover {
+			color: $color-secondary;
+		}
+	}
+	&--table {
+		font-size: 10px;
+		color: $font-color-main;
+		background-color: transparent;
+		border: none;
+		&.btn--delete {
+			padding-right: 0;
+			color: $color-delete;
+		}
+	}
+	&__input{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		z-index: 9;
+		opacity: 0;
+	}
+	&__icon{
+		width: 40px;
+		position: absolute;
+		top: 50%;
+		left: 0;
+		transform: translate3d(0,-50%,0);
+		.icon{
+			margin: 0 auto;
+		}
+	}
+	&.inactive {
+		cursor: default;
+		opacity: .5;
+	}
+}

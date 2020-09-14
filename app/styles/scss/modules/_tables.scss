@@ -1,0 +1,173 @@
+.table-wrap {
+	width: 100%;
+	margin-bottom: 30px;
+	overflow: auto;
+	/* &:last-child{
+		margin-bottom: 0;
+		} */
+	&--shadow {
+		padding: 10px 15px;
+	}
+	.table {
+	}
+	.wrap-btns {
+		margin-top: 20px;
+	}
+	.add-row {
+		padding: 10px 20px;
+		text-align: center;
+		cursor: pointer;
+		background-color: $color-bg-dark;
+		.btn {
+			display: inline-block;
+			color: #fff;
+		}
+	}
+}
+.table {
+	width: 100%;
+	&.table--center-cell {
+		th, td {
+			text-align: center;
+		}
+	}
+	thead {
+		tr {
+			background-color: #fcfcfc;
+			th {
+				font-size: 10px;
+				font-weight: $font-main-weight-sm;
+				color: $font-color-light;
+				text-align: left;
+				text-transform: uppercase;
+			}
+		}
+	}
+	tbody {
+		tr {
+			background-color: #f1f8fe;
+			&:nth-child(2) {
+				background-color: #fcfcfc;
+			}
+			td {
+				font-size: 12px;
+				color: $font-color-main;
+				text-align: left;
+			}
+		}
+	}
+	tr {
+	}
+	th, td {
+		padding: 15px 20px;
+		//text-align: center;
+	}
+	th {
+	}
+	td {
+	}
+}
+.table-shadow {
+	width: 100%;
+	font-size: 10px;
+	vertical-align: middle;
+	border-spacing: 0 10px;
+	border-collapse: separate;
+	thead {
+		tr {
+			th {
+				padding-bottom: 0;
+				font-size: 10px;
+				font-weight: $font-main-weight-sm;
+				color: $font-color-light;
+				//text-align: left;
+				text-transform: uppercase;
+			}
+		}
+	}
+	tbody {
+		tr {
+			position: relative;
+			margin-bottom: 5px;
+			background-color: #fff;
+			box-shadow: $box-shadow;
+			&.edit-hover {
+				&:hover {
+					td {
+						.edit-wrap {
+							.dropdown {
+								//@extend .dropdown.is-open;
+								//@extend .dropdown--v-center.is-open;
+							}
+						}
+					}
+				}
+			}
+			td {
+				font-size: 10px;
+				font-weight: $font-main-weight-sm;
+				color: $font-color-main;
+				//text-align: left;
+				text-transform: uppercase;
+				.title {
+					margin-bottom: 5px;
+					font-size: 14px;
+					font-weight: $font-main-weight-light;
+					text-transform: none;
+				}
+				.text {
+				}
+				.icon {
+					display: block;
+				}
+				.edit-wrap {
+					position: relative;
+					.edit {
+						height: 46px;
+						padding: 15px 20px;
+						cursor: pointer;
+						&:hover {
+							.icon {
+								//@extend .is-active;
+							}
+						}
+						.icon {
+							display: block;
+							margin: 0 auto;
+						}
+					}
+				}
+			}
+		}
+	}
+	tr {
+		&:first-child{
+			td{
+			padding-top: 15px;
+			}
+			th{
+			padding-top: 10px;
+			}
+		}
+	}
+	th, td {
+		padding: 15px 10px!important;
+		text-align: center;
+		vertical-align: middle;
+		&:first-of-type {
+			padding-left: 20px;
+			text-align: left;
+		}
+		&:last-of-type {
+			padding-right: 20px;
+			&.td-edit {
+				padding: 0;
+			}
+		}
+	}
+	th {
+		padding-top: 0;
+	}
+	td {
+	}
+}

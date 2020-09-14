@@ -1,0 +1,49 @@
+@import 'bases/settings';//variables & settings
+@import 'bases/colors';//variables & settings
+@import 'bases/fonts';//variables & settings
+@import 'bases/extend';//variables & settings
+@import 'bases/text';
+
+@import 'modules/header';
+@import 'modules/icons';
+@import 'modules/tables';
+@import 'modules/buttons';
+@import 'modules/tabs';
+@import 'modules/forms';
+@import 'modules/modal';
+
+
+
+.sgc-dashboard{
+	background-color: #fff;
+}
+
+.bloc-text {
+	vertical-align: middle;
+	p {
+		line-height: 2.5;
+	}
+	input.textfield__input, select.selectfield__input {
+		font-size: 20px;
+	}
+}
+
+.fl-l{
+	float: left;
+}
+.fl-r{
+	float: right;
+}
+
+
+.inner{
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+.alert-not-found{
+	padding: 40px;
+	border: 1px solid $color-border-light;
+	background-color: $color-bg-light;
+	border-radius: 4px;
+}

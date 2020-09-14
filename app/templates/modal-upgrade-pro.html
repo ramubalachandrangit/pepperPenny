@@ -1,0 +1,55 @@
+<div class="wrap-modal fade-modal" ng-if="display">
+   <div class="wrap-modal__modal-container">
+      <div class="modal">
+         <div class="modal-close" data-ng-click="close()">
+            <div class="modal-close__icon">
+               <i class="icon icon--cross"></i>
+            </div>
+            <div class="modal-close__text">Close</div>
+         </div>
+         <div class="modal__wrap">
+            <div class="modal__content">
+               <div class="page__content">
+                  <form>
+                     <h2 class="heading--2">Upgrade to Pro</h2>
+                     <p class="paragraph bold">Enter Your License Key</p>
+                     <div class="textfield textfield--large textfield--full-w">
+                        <input type="text"  class="textfield__input" ng-class="{'invalid': errorLicence}" name="id" required placeholder="xxxx-xxxx-xxxx-xxxx" ng-model="License.Key">
+                     </div>
+                     <p class="error-mesg" style="margin-top: 20px" ng-if="errorLicence">An error occured. Please verify your Licence Key.</p>
+                     <p class="paragraph bold" style="margin-top: 20px"> How do I upgrade to Pro?</p>
+                     <p class="paragraph">Simply enter your licence key above and click Save Licence. Application will automatically be upgraded to the Pro version.</p>
+                     <p class="paragraph bold" style="margin-top: 20px">Where can I get a Licence Key?</p>
+                     <p class="paragraph">You can purchase a licence from our page on <a href="http://www.pepperpenny.com" target="_blank">www.pepperpenny.com.</a> </p>
+                     <p class="paragraph bold" style="margin-top: 20px">Refund Policy</p>
+                     <p class="paragraph">If for any reason you want to cancel your subscription, we will refund your last payment, no questions asked. You will still be able to use the free version</p>
+
+                     <div class="clearfix">                           
+                       <!--  <div class="fl-l wrap-btns wrap-btns--left">
+                           <a class="btn btn--add">
+                              <span class="btn__text">Purchase a licence</span>
+                           </a>
+                        </div> -->
+                        <!-- <div class="fl-r wrap-btns wrap-btns--right"> -->
+                        <div class="wrap-btns wrap-btns--right">
+
+                           <div class="btn btn--save" data-ng-click="saveLicense()" ng-class="{'btn--icon-left': isLoadingKey}">
+                              <span class="btn__icon" ng-if="isLoadingKey">
+                                  <i class="icon icon--load-anim"></i>
+                              </span>
+                              <input type='submit' class='btn__input' value='Next' />
+                              <span class="btn__text" >Save Licence</span>
+                           </div>
+                           <a class="btn btn--ghost" data-ng-click="close()">
+                              <span class="btn__text">Close</span>
+                           </a>
+                        <!-- </div> -->
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div id="fade" class="overlay" data-ng-click="close()"></div>
+</div>

@@ -1,0 +1,241 @@
+.heading--1,
+.heading--2,
+.heading--3,
+.heading--4,
+.paragraph,
+.title-info,
+.txt-nav {
+	&.white {
+		color: #fff;
+	}
+	&.black, &.color-main {
+		color: $font-color-main;
+	}
+	&.light {
+		color: $font-color-light;
+	}
+	&.color-title {
+		color: $font-color-title;
+	}
+	&.alert {
+		color: $color-alert;
+	}
+	&.green{
+		color: $color-valid;
+	}
+	&:last-child, .last-child {
+		margin-bottom: 0;
+	}
+	&.center {
+		text-align: center;
+	}
+	&.mb-0 {
+		margin-bottom: 0;
+	}
+}
+.heading {
+	&--1,
+	&--2,
+	&--3,
+	&--4 {
+	}
+	&--1 {
+		position: relative;
+		margin-top: 0;
+		margin-bottom: 25px;
+		font-family: $font-main-regular;
+		font-size: $size-h1-mobile;
+		font-weight: $font-main-weight-light;
+		line-height: 1.4;
+		color: $font-color-main;
+		//letter-spacing: 1.2px;
+		@media (min-width: $desktop-min-width) {
+			margin-bottom: 25px;
+			font-size: $size-h1;
+		}
+		&.mb-1 {
+			margin-bottom: 5px;
+		}
+	}
+	&--2 {
+		position: relative;
+		margin-top: 0;
+		margin-bottom: 20px;
+		font-family: $font-main-regular;
+		font-size: $size-h2-mobile;
+		font-weight: $font-main-weight-sm;
+		line-height: normal;
+		color: $font-color-main;
+		text-transform: uppercase;
+		letter-spacing: .0909091em;
+
+		@media (min-width: $desktop-min-width) {
+			margin-bottom: 20px;
+			font-size: $size-h2;
+		}
+	}
+	&--3 {
+		position: relative;
+		margin-top: 0;
+		margin-bottom: 20px;
+		font-family: $font-title-regular;
+		font-size: $size-h3-mobile;
+		font-weight: 400;
+		line-height: 1.2;
+		color: $font-color-main;
+		letter-spacing: 0;
+
+		&.mb-1 {
+			margin-bottom: 10px;
+		}
+		&.mb-2 {
+			margin-bottom: 20px;
+		}
+		@media (min-width: $desktop-min-width) {
+			margin-bottom: 30px;
+			font-size: $size-h3;
+		}
+	}
+	&--4 {
+		position: relative;
+		margin-top: 0;
+		margin-bottom: 5px;
+		font-family: $font-main-regular;
+		font-size: $size-h4-mobile;
+		font-weight: $font-main-weight-sm;
+		line-height: 1.2;
+		color: $font-color-main;
+		//letter-spacing: 1px;
+		text-transform: uppercase;
+		@media (min-width: $desktop-min-width) {
+			font-size: $size-h4;
+		}
+		&.mb-1 {
+			margin-bottom: 10px;
+		}
+		&.mb-2 {
+			margin-bottom: 15px;
+		}
+	}
+}
+
+.title-info {
+	position: relative;
+	font-family: $font-main-regular;
+	font-size: 11px;
+	font-weight: $font-main-weight-regular;
+	line-height: 1.2;
+	color: $font-color-title;
+	text-transform: uppercase;
+	&.mb-1 {
+		margin-bottom: 10px;
+	}
+	&.mb-2 {
+		margin-bottom: 15px;
+	}
+}
+
+.txt-nav {
+	font-family: $font-main-regular;
+	font-size: 12px;
+	font-weight: $font-main-weight-sm;
+	color: #fff;
+	text-transform: uppercase;
+	//letter-spacing: 1px;
+	@media (min-width: $desktop-min-width) {
+		font-size: 12px;
+	}
+	&--icon {
+		display: flex;
+
+		align-items: center;
+		& > .wrap-i-circle, & > .icon {
+			flex-basis: 22px;
+			& + .txt-nav__text {
+				padding-left: 10px;
+			}
+		}
+	}
+	&__text {
+		flex-grow: 1;
+	}
+}
+
+
+.paragraph {
+	margin-bottom: 10px;
+	font-family: $font-main-regular;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: $font-color-main;
+	&--spacing-side {
+		padding-right: 0;
+		padding-left: 0;
+		@media (min-width: $tablet-min-width) {
+			padding-right: 100px;
+			padding-left: 100px;
+		}
+		@media (min-width: $desktop-min-width) {
+			padding-right: 150px;
+			padding-left: 150px;
+		}
+	}
+	&--padding-b {
+		padding-bottom: 30px;
+		@media (min-width: $tablet-min-width) {
+			padding-bottom: 40px;
+		}
+	}
+	&--large{
+		font-size: 20px;
+	}
+	&--medium{
+		font-size: 16px;
+	}
+	&.bold {
+		font-weight: $font-main-weight-sm;
+	}
+	&.thin {
+		font-weight: $font-main-weight-light;
+	}
+	&.center {
+		text-align: center;
+	}
+	&.s-2 {
+		font-size: 14px;
+	}
+	&.s-3 {
+		font-size: 18px;
+	}
+}
+
+
+
+.f-c-white {
+	color: #fff;
+}
+.f-c-main {
+	color: $font-color-main!important;
+}
+
+.f-c-title {
+	color: $font-color-title!important;
+}
+
+.t-a-c {
+	text-align: center;
+}
+
+
+
+//fix it later
+.page-title{
+	position: relative;
+	margin-top: 0;
+	margin-bottom: 50px;
+	font-family: $font-main-regular;
+	font-size: 16px;
+	line-height: 1.4;
+	color: $font-color-main;
+}

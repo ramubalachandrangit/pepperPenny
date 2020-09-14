@@ -1,0 +1,381 @@
+/* ======================== ICONS
+***** the icons
+========================= */
+.wrap-i-circle {
+	position: relative;
+	display: block;
+	width: 22px;
+	height: 22px;
+	background-color: #eff0f3;
+	border-radius: 50px;
+	&--large {
+		width: 40px;
+		height: 40px;
+	}
+	.icon {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		left: 0;
+		margin: 0 auto;
+		transform: translate3d(0, -50%, 0);
+	}
+}
+.icon-wrap-link {
+	padding: 5px;
+	cursor: pointer;
+}
+.icon {
+	position: relative;
+	display: inline-block;
+	&--refresh {
+		width: 20px;
+		height: 20px;
+		background-image: url(chrome-extension://__MSG_@@extension_id__/images/refresh-icon.png);
+		background-repeat: no-repeat;
+		background-position: 0px 0;
+		background-size: 20px 20px;
+		&.is-spinning{
+			animation: ld-spin infinite .8s linear;
+		}
+	}
+	&--back {
+		width: 26px;
+		height: 18px;
+		background-image: url(#{$img-folder-global}#{$url-sprite});
+		background-repeat: no-repeat;
+		background-position: -21px 0;
+		background-size: $sprite-size;
+	}
+	&--search {
+		width: 17px;
+		height: 17px;
+		background-image: url(#{$img-folder-global}#{$url-sprite});
+		background-repeat: no-repeat;
+		background-position: 0 -24px;
+		background-size: $sprite-size;
+	}
+	&--check {
+		width: 22px;
+		height: 22px;
+		background-color: transparent;
+		&:before, &:after {
+			position: absolute;
+			display: block;
+			height: 2px;
+			content: '';
+			background-color: $font-color-main;
+			border-radius: 5px;
+			transition: .3s;
+		}
+		&:before {
+			top: 9px;
+			left: 4px;
+			width: 17px;
+			transform: rotate(-45deg);
+		}
+		&:after {
+			top: 12px;
+			left: 1px;
+			width: 7px;
+			transform: rotate(45deg);
+		}
+		&.white {
+			&:before, &:after {
+				background-color: #fff;
+			}
+			&.circle {
+				border-color: #fff;
+			}
+		}
+		&.green {
+			&:before, &:after {
+				background-color: $color-valid;
+			}
+			&.circle {
+				border-color: $color-valid;
+			}
+		}
+		&.small {
+			&:before {
+				top: 9px;
+				left: 7px;
+				width: 10px;
+				transform: rotate(-45deg);
+			}
+			&:after {
+				top: 11px;
+				left: 4px;
+				width: 6px;
+				transform: rotate(45deg);
+			}
+		}
+		&.circle {
+			border: 1px solid $font-color-main;
+			border-radius: 20px;
+			&.full {
+				&.green {
+					background-color: $color-valid;
+					border-color: $color-valid;
+					&:before, &:after {
+						background-color: #fff;
+					}
+				}
+				&.white {
+					background-color: #fff;
+					border-color: #fff;
+					&:before, &:after {
+						background-color: $font-color-main;
+					}
+					&.i-pink {
+						&:before, &:after {
+							background-color: $color-secondary;
+						}
+					}
+					&.i-green {
+						&:before, &:after {
+							background-color: $color-valid;
+						}
+					}
+					&.i-blue {
+						&:before, &:after {
+							background-color: $color-main;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&--cross-red-circle {
+		width: 21px;
+		height: 21px;
+		background-color: $color-delete;
+		border-radius: 20px;
+		&:before, &:after {
+			position: absolute;
+			top: 10px;
+			left: 6px;
+			display: block;
+			width: 9px;
+			height: 1px;
+			content: '';
+			background-color: #fff;
+			transition: .3s;
+		}
+		&:before {
+			transform: rotate(-45deg);
+		}
+		&:after {
+			transform: rotate(45deg);
+		}
+		&.small {
+			width: 13px;
+			height: 13px;
+			&:before, &:after {
+				top: 6px;
+				left: 3px;
+				width: 7px;
+			}
+		}
+	}
+	&--cross {
+		width: 21px;
+		height: 21px;
+		&:before, &:after {
+			position: absolute;
+			top: 10px;
+			left: 4px;
+			display: block;
+			width: 14px;
+			height: 1px;
+			content: '';
+			background-color: #fff;
+		}
+		&:before {
+			transform: rotate(-45deg);
+		}
+		&:after {
+			transform: rotate(45deg);
+		}
+		&.black {
+			&:before, &:after {
+				background-color: $font-color-main;
+			}
+		}
+		&.shadow{
+			&:before {
+				box-shadow: 0 0px 4px 1px rgba(48, 59, 83, 0), 0 0px 37px 11px rgba(48, 59, 83, .8);
+			}
+		}
+	}
+	&--plus {
+		width: 22px;
+		height: 22px;
+		transition: .3s;
+		&:before, &:after {
+			position: absolute;
+			content: "";
+			background-color: #fff;
+			border-radius: 2px;
+		}
+		&:before {
+			top: 9px;
+			left: 4px;
+			width: 12px;
+			height: 2px;
+		}
+		&:after {
+			top: 4px;
+			left: 9px;
+			width: 2px;
+			height: 12px;
+		}
+		&.white {
+			&:before, &:after {
+				background-color: #fff;
+			}
+			&.circle {
+				border-color: #fff;
+			}
+		}
+		&.green {
+			&:before, &:after {
+				background-color: $color-valid;
+			}
+		}
+		&.circle {
+			width: 22px;
+			height: 22px;
+			border: 1px solid $font-color-main;
+			border-radius: 20px;
+			&.full {
+				&.green {
+					background-color: $color-valid;
+					border-color: $color-valid;
+					&:before, &:after {
+						background-color: #fff;
+					}
+				}
+				&.pink {
+					background-color: $color-secondary;
+					border-color: $color-secondary;
+					&:before, &:after {
+						background-color: #fff;
+					}
+				}
+			}
+		}
+	}
+	&--circle {
+		width: 14px;
+		height: 14px;
+		background-color: #fff;
+		border-radius: 50px;
+		&.small {
+			width: 9px;
+			height: 9px;
+		}
+		&.all, &.All {
+			background-color: #c4c4c4;
+		}
+		&.pending, &.Pending {
+			background-color: $color-main;
+		}
+		&.new, &.New {
+			background-color: #094db8;
+		}
+		&.open, &.Open {
+			background-color: $color-secondary;
+		}
+		&.valid {
+			background-color: $color-valid;
+		}
+	}
+	&--dots-edit {
+		position: relative;
+		width: 3px;
+		height: 15px;
+		&:before {
+			position: absolute;
+			top: 6px;
+			left: 0;
+			display: block;
+			width: 3px;
+			height: 3px;
+			content: "";
+			background-color: $font-color-light;
+			box-shadow: 0 6px 0 0 $font-color-light, 0 -6px 0 0 $font-color-light;
+			//opacity: .8;
+		}
+		&.is-active {
+			&:before {
+				background-color: $color-main;
+				box-shadow: 0 6px 0 0 $color-main, 0 -6px 0 0 $color-main;
+			}
+		}
+	}
+	&--load-anim {
+		width: 15px;
+		height: 15px;
+		border: 1px solid rgba(255,255,255,.5);
+		border-radius: 20px;
+		//transform: translate3d(0,-50%,0);
+		&:before {
+			position: absolute;
+			top: -1px;
+			left: -1px;
+			width: 15px;
+			height: 15px;
+			box-sizing: border-box;
+			content: "";
+			border: 1px solid transparent;
+			border-top-color: #fff;
+			border-radius: 20px;
+			animation: ld-spin infinite .8s linear;
+		}
+		&.white {
+			border: 1px solid rgba(255,255,255,.5);
+			&:before {
+				border-top-color: #fff;
+			}
+		}
+		&.black {
+			border: 1px solid rgba(47, 60, 83,.5);
+			&:before {
+				border-top-color: $font-color-main;
+			}
+		}
+		&.blue {
+			border: 1px solid rgba(26,136,133,.5);
+			&:before {
+				border-top-color: $color-main;
+			}
+		}
+		&.pink {
+			border: 1px solid rgba(248, 37, 148,.5);
+			&:before {
+				border-top-color: $color-secondary;
+			}
+		}
+		&.green {
+			border: 1px solid rgba(35, 181, 132,.5);
+			&:before {
+				border-top-color: $color-valid;
+			}
+		}
+	}
+}
+
+
+
+
+
+@keyframes ld-spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
